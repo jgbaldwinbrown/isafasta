@@ -25,7 +25,7 @@ To check if a file is in valid FASTA format, provide the file to standard
 input of this program as follows:
 
 ```sh
-isfasta <infile.fa
+isafasta <infile.fa
 ```
 
 If no output is returned, the file is a valid FASTA file. If the file
