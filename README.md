@@ -11,7 +11,7 @@ Lindenbaum under the MIT license v. 2. It is now licensed under the AGPL.
 
 ## Installation
 
-This program can be built with the following command:
+These programs can be built with the following command:
 
 ```sh
 make
@@ -19,7 +19,9 @@ make
 
 and then should be copied into a directory that is in your `PATH` for use.
 
-### Usage
+## Usage
+
+### isafasta
 
 To check if a file is in valid FASTA format, provide the file to standard
 input of this program as follows:
@@ -30,5 +32,15 @@ isafasta <infile.fa
 
 If no output is returned, the file is a valid FASTA file. If the file
 is not a valid FASTA, an error message will be reported.
+
+### isafastq
+
 To check if a file is in valid FASTA format, provide the file to standard
 input of this program as follows:
+
+```sh
+isafastq <infile.fq
+```
+
+If no output is returned, the file is a valid FASTQ file. If the file
+is not a valid FASTQ an error message will be reported.
