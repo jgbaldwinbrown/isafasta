@@ -38,7 +38,7 @@ is not a valid FASTA, an error message will be reported.
 
 ### isafastq
 
-To check if a file is in valid FASTA format, provide the file to standard
+To check if a file is in valid FASTQ format, provide the file to standard
 input of this program as follows:
 
 ```sh
@@ -46,4 +46,16 @@ isafastq <infile.fq
 ```
 
 If no output is returned, the file is a valid FASTQ file. If the file
-is not a valid FASTQ an error message will be reported.
+is not a valid FASTQ, an error message will be reported.
+
+### isabed
+
+To check if a file is in valid bed format, provide the file to standard
+input of this program as follows:
+
+```sh
+isabed <infile.bed
+```
+
+If no output is returned, the file is a valid bed file. If the file
+is not a valid bed, an error message will be reported.
