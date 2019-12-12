@@ -2,6 +2,9 @@
 
 ## Introduction
 
+`isafasta` is a set of tools that allow you to check the integrity of
+file formats common in bioinformatics, including FASTA and FASTQ files.
+
 This is a copy of a wonderful FASTA parser from the following BioStars thread:
 
 [https://www.biostars.org/p/42126/](https://www.biostars.org/p/42126/)
