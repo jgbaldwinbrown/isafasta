@@ -5,6 +5,7 @@
 #include <ctype.h>
 
 int yylex();
+int yylineno;
 int yyerror( char* message);
 %}
 %error-verbose
@@ -31,7 +32,8 @@ rest: TAB anytablist CR | CR  ;
 %%
 int yyerror( char* message)
     {
-    fprintf(stderr,"NOT A BED %s\n",message);
+    fprintf(stderr,"NOT A BED: %s\n",message);
+    fprintf(stderr, "Line %d\n", yylineno);
     exit(EXIT_FAILURE);
     return -1;
     }

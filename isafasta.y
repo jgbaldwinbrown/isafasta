@@ -5,6 +5,9 @@
 
 int yylex();
 int yyerror( char* message);
+
+int yylineno = 1;
+
 %}
 %error-verbose
 %token LT OTHER SYMBOL CR
@@ -25,7 +28,8 @@ crlist: crlist CR | CR;
 %%
 int yyerror( char* message)
     {
-    fprintf(stderr,"NOT A FASTA %s\n",message);
+    fprintf(stderr,"NOT A FASTA: %s\n",message);
+    fprintf(stderr, "Line %d\n", yylineno);
     exit(EXIT_FAILURE);
     return -1;
     }
@@ -36,7 +40,9 @@ int yylex()
         {
         case EOF: return c;
         case '>' : return LT;
-        case '\n' : return CR;
+        case '\n' : 
+            yylineno++;
+            return CR;
         default: return isalpha(c)?SYMBOL:OTHER;
         }
     }

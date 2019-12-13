@@ -2,6 +2,7 @@
 # define YYSTYPE long long
 # include "isabed.tab.h"
 %}
+%option yylineno
 
 %%
 

@@ -5,6 +5,9 @@
 
 int yylex();
 int yyerror( char* message);
+
+int yylineno = 1;
+
 %}
 %error-verbose
 %token LT OTHER SYMBOL CR PLUS QUALV
@@ -29,7 +32,8 @@ plusline: PLUS anylist CR | PLUS CR;
 %%
 int yyerror( char* message)
     {
-    fprintf(stderr,"NOT A FASTQ %s\n",message);
+    fprintf(stderr,"NOT A FASTQ: %s\n",message);
+    fprintf(stderr, "Line %d\n", yylineno);
     exit(EXIT_FAILURE);
     return -1;
     }
