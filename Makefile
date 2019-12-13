@@ -3,6 +3,9 @@ all: isafasta isafastq isabed
 clean:
 	rm -r isafasta.tab.c isafasta isafastq isabed
 
+test:
+	sh test.sh
+
 .DELETE_ON_ERROR:
 
 .PHONY: all clean
