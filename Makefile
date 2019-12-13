@@ -17,7 +17,13 @@ isafastq.tab.c: isafastq.y
 isafastq: isafastq.tab.c
 	gcc -Wall -O3 -o $@ $^
 
-isabed.tab.c: isabed.y
-	bison isabed.y
-isabed: isabed.tab.c
+isabed.yy.c: isabed.l isabed.tab.h
+	flex -o $@ $<
+isabed.yy.o: isabed.yy.c
+	gcc -c -Wall -O3 $< -o $@
+isabed.tab.c isabed.tab.h: isabed.y
+	bison -d isabed.y
+isabed.tab.o: isabed.tab.c
+	gcc -c -Wall -O3 -o $@ $^
+isabed: isabed.tab.o isabed.yy.o
 	gcc -Wall -O3 -o $@ $^
