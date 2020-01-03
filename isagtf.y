@@ -9,27 +9,27 @@ int yylineno;
 int yyerror( char* message);
 %}
 %error-verbose
-%token FLOAT INT TAB SPACE SEMI SIGN QUOTE CR GENE_ID TRANSCRIPT_ID OTHER
+%token FLOAT INT TAB SPACE SEMI SIGN QUOTE CR GENE_ID TRANSCRIPT_ID OTHER DOT
 %start input
 %%
 
 input:   input entry | entry  ;
 entry: seqname TAB source TAB feature TAB start TAB end TAB score TAB strand TAB frame TAB attributes CR ;
-seqname: anylist ;
-source: anylist ;
-feature: anylist ;
-start: INT  ;
-end: INT  ;
-score: number ;
-strand: SIGN ;
-frame: INT ;
-attributes: gene_id transcript_id ;
+seqname: anylist  ;
+source: anylist  ;
+feature: anylist  ;
+start: INT   | DOT ;
+end: INT   | DOT ;
+score: number  | DOT ;
+strand: SIGN  | DOT ;
+frame: INT  | DOT ;
+attributes: gene_id transcript_id  | DOT ;
 gene_id: spaces_opt GENE_ID spaces_opt QUOTE anylist QUOTE spaces_opt SEMI ;
 transcript_id: spaces_opt TRANSCRIPT_ID spaces_opt QUOTE anylist QUOTE spaces_opt SEMI ;
 spaces: spaces SPACE | SPACE ;
 spaces_opt: spaces | ;
 anylist: anylist any | any  ;
-any: number | OTHER | SEMI | SIGN | GENE_ID | TRANSCRIPT_ID ;
+any: number | OTHER | SEMI | SIGN | GENE_ID | TRANSCRIPT_ID | DOT ;
 number: FLOAT | INT ;
 
 %%

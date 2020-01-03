@@ -24,6 +24,10 @@
     return INT;
 }
 
+\. {
+    return DOT;
+}
+
 \  {
     return SPACE;
 }
@@ -48,7 +52,7 @@
     return TRANSCRIPT_ID;
 }
 
-[^\n\t0-9 ".] {
+[^\n\t0-9 "] {
     return OTHER;
 }
 
